@@ -1,7 +1,19 @@
+from fastapi import HTTPException
 from datetime import datetime, timedelta
 from sqlalchemy.orm import Session
+import requests
 from model import Milestone
 # Create a dictionary with pregnancy week information (simplified version)
+
+
+
+GROQ_API_KEY = "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"
+GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
+GROQ_MODEL = "llama3-70b-8192"
+
+
+
+
 PREGNANCY_WEEKS = {
     1: "Your baby is about the size of a poppy seed. The fertilized egg is developing into a blastocyst.",
     4: "Your baby is about the size of a poppy seed. Major organs and external features begin to form.",
@@ -72,3 +84,38 @@ def initialize_default_milestones(db: Session, tracker_id: int):
             db.add(milestone)
     
     db.commit()
+
+
+def get_ai_response(prompt: str) -> str:
+    """Get a response from the Groq LLM API"""
+    headers = {
+        "Authorization": f"Bearer {GROQ_API_KEY}",
+        "Content-Type": "application/json"
+    }
+    
+    payload = {
+        "model": GROQ_MODEL,
+        "messages": [
+            {"role": "system", "content": "You are a knowledgeable and compassionate pregnancy assistant. Provide helpful, accurate, and supportive information for pregnant individuals."},
+            {"role": "user", "content": prompt}
+        ],
+        "temperature": 0.7,
+        "max_tokens": 500
+    }
+    
+    try:
+        response = requests.post(GROQ_API_URL, headers=headers, json=payload)
+        response.raise_for_status()  # Raise exception for 4XX/5XX responses
+        
+        response_data = response.json()
+        if "choices" in response_data and len(response_data["choices"]) > 0:
+            return response_data["choices"][0]["message"]["content"].strip()
+        else:
+            return "Sorry, I couldn't generate insights at this time."
+    except requests.exceptions.RequestException as e:
+        # Log the error (in a production app)
+        print(f"Error calling Groq API: {str(e)}")
+        raise HTTPException(
+            status_code=500, 
+            detail="Failed to get AI insights. Please try again later."
+        )

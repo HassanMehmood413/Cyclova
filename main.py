@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 import model
 from database import engine 
-from routes import users,authentication
+from routes import users,authentication,pregnancy_tracker
 # from .routes import authentication
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -21,3 +21,4 @@ app.add_middleware(
 )
 app.include_router(authentication.router)
 app.include_router(users.router)
+app.include_router(pregnancy_tracker.router)
