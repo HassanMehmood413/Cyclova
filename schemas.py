@@ -43,6 +43,16 @@ class TokenData(BaseModel):
     id: Optional[int] = None
 
 
+# ////////////////////////
+# Appintment design 
+# ////////////////////////
+
+
+
+class MessageInput(BaseModel):
+    user_input: str
+
+
 
 # ////////////////////////
 # Pregnancy tracker 
@@ -152,3 +162,52 @@ class AIInsightResponse(BaseModel):
 class CompletePregnancyDataResponse(PregnancyDataResponse):
     last_period: str
     milestones: Dict[str, List[dict]]
+
+
+
+
+# ////////////////////////
+# Period care 
+# ////////////////////////
+class PeriodTrackerCreate(BaseModel):
+    start_date: str
+    end_date: Optional[str] = None
+    cycle_length: Optional[int] = None
+    period_length: Optional[int] = None
+
+class PeriodTrackerResponse(BaseModel):
+    id: int
+    user_id: int
+    start_date: str
+    end_date: Optional[str] = None
+    cycle_length: Optional[int] = None
+    period_length: Optional[int] = None
+    created_at: datetime
+    
+    class Config:
+        orm_mode = True
+
+class SymptomCreate(BaseModel):
+    date: str
+    symptom_type: str
+    severity: int
+    notes: Optional[str] = None
+
+class MoodCreate(BaseModel):
+    date: str
+    mood_type: str
+    intensity: int
+    notes: Optional[str] = None
+
+class ReminderCreate(BaseModel):
+    reminder_type: str
+    reminder_date: str
+    description: Optional[str] = None
+
+class AppointmentCreate(BaseModel):
+    appointment_date: str
+    appointment_time: str
+    doctor_name: str
+    doctor_email: Optional[str] = None
+    reason: Optional[str] = None
+    location: Optional[str] = None
