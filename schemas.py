@@ -23,3 +23,21 @@ class User(BaseModel):
     username: str
     password: str
     email: EmailStr
+
+
+
+# Login schema
+class Login(BaseModel):
+    email: EmailStr
+    password: str
+
+
+# Token schema for authentication
+class Token(BaseModel):
+    access_token: str
+    token_type: str
+
+
+# TokenData schema to hold data related to the user (usually after token verification)
+class TokenData(BaseModel):
+    id: Optional[int] = None
