@@ -29,8 +29,6 @@ Cyclova unites *pregnancy care* and *menstrual health* in one AI-powered app, ma
 <div align="center">
 
 
-💬 Voice-Driven AI + Personalized Health Guidance + Community Support
-
 
 ## 🌟 Two Powerful Modules
 
@@ -40,22 +38,18 @@ Cyclova unites *pregnancy care* and *menstrual health* in one AI-powered app, ma
 - *Health Tracking* — Monitor vitals, symptoms & appointments
 - *Mental Wellness* — Stress management & mood tracking
 - *Nutrition & Exercise* — Personalized plans for each trimester
-- *Virtual Doula* — Birth preparation & postpartum support
-- *Voice Assistant* — Hands-free health guidance
 
 ### 🔄 Menstrual Health
 - *Period Tracker* — Smart calendar with predictions & reminders
 - *Health Tips* — Daily nutrition & self-care guidance
 - *Mood Monitor* — Emotional support & anonymous Q&A
-- *Pharmacy Locator* — Find nearby stores via Google Maps
-- *Product Access* — Partnerships with pharmacies & NGOs
 
 <div align="center">
 
 ## 💻 Tech We Use
 
 
-Frontend: Next.js | Backend: FastAPI + Firebase | Voice AI: Whisper, LLaMA, TTS
+Frontend: Next.js | Backend: FastAPI + Neon.x | Voice AI: Whisper, LLaMA, TTS
 Maps: Google Maps API | Hosting: Vercel | Payments: Secure Gateway
 
 
