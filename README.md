@@ -91,5 +91,3 @@ Open an issue | Submit a PR | Contact us
 <p align="center">
   Made with ❤️ for women worldwide
 </p>
->>>>>>> 936b67f125b7714f366c76fdbf8fe3c7ed820b9c
->>>>>>> tayyab
