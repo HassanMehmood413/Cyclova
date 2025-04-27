@@ -1,3 +1,16 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+# Cyclova 
+
+
+=======
+# Cyclova 🌸
+
+> **AI-Powered Women's Healthcare: Pregnancy Wellness + Menstrual Health**
+
+>>>>>>> 7bf4c58 (Adding files)
 <div align="center">
 
 # 🌸 Cyclova 🌸
@@ -121,3 +134,126 @@ An innovative team committed to revolutionizing women's healthcare through techn
 Made with ❤ for women worldwide
 
 </div>
+<<<<<<< HEAD
+=======
+=======
+<p align="center">
+  Made with ❤️ for women worldwide
+</p>
+=======
+# Cyclova - Women's Health Companion
+
+Cyclova is a comprehensive women's health platform that includes pregnancy tracking, period care, and AI-powered appointment scheduling.
+
+## Features
+
+- **Period Tracking**: Track menstrual cycles, symptoms, and moods
+- **Pregnancy Tracking**: Follow pregnancy journey with milestones and insights
+- **AI Appointment Booking**: Schedule doctor appointments with an AI assistant
+- **Health Insights**: Get personalized health recommendations and information
+
+## Tech Stack
+
+### Backend (FastAPI)
+
+- Python FastAPI for API endpoints
+- SQLAlchemy for ORM
+- JWT-based authentication
+- Groq LLM API integration for AI features
+- PostgreSQL database
+
+### Frontend (Next.js)
+
+- Next.js 14 with React 18
+- TypeScript for type safety
+- Context API for state management
+- Custom CSS for styling (no Tailwind)
+- Animations and visual effects
+
+## Project Structure
+
+```
+/
+├── Agent/                  # AI Agent code
+├── Frontend/               # Next.js Frontend
+│   ├── app/                # App directory
+│   │   ├── components/     # Reusable components
+│   │   ├── context/        # Context providers
+│   │   ├── styles/         # CSS files
+│   │   ├── *feature*/      # Feature-specific pages
+├── model.py                # Database models
+├── routes/                 # API routes
+├── schemas.py              # Pydantic schemas
+├── utils/                  # Utility functions
+├── main.py                 # FastAPI application
+```
+
+## Setup Instructions
+
+### Backend Setup
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd Cyclova
+```
+
+2. Create a virtual environment and install dependencies:
+```bash
+python -m venv venv
+source venv/bin/activate   # On Windows: venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+3. Create a `.env` file in the root directory:
+```
+DB_URI=postgresql://username:password@localhost/cyclova
+SECRET_KEY=your_secret_key_here
+GROQ_API_KEY=your_groq_api_key_here
+GROQ_API_URL=https://api.groq.com/openai/v1/chat/completions
+GROQ_MODEL=llama3-70b-8192
+```
+
+4. Start the backend server:
+```bash
+uvicorn main:app --reload
+```
+
+### Frontend Setup
+
+1. Navigate to the Frontend directory:
+```bash
+cd Frontend
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Start the development server:
+```bash
+npm run dev
+```
+
+4. Open [http://localhost:3000](http://localhost:3000) to view the app
+
+## API Endpoints
+
+The backend provides the following main endpoints:
+
+- **/user** - User management
+- **/login** - Authentication
+- **/pregnancy** - Pregnancy tracking
+- **/tracker** - Period tracking
+- **/appointment** - Appointment scheduling
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Contributors
+
+- [Your Name](https://github.com/yourusername)
+>>>>>>> 093b57e (Adding frontend)
+>>>>>>> 7bf4c58 (Adding files)

@@ -88,3 +88,7 @@ poetry.lock
 # __pypackages__ per PEP 582
 __pypackages__/
 
+
+node_modules/
+/node_modules
+.node_modules

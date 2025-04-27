@@ -16,7 +16,16 @@ def get_all_user(db:Session = Depends(get_db)):
 
 
 
-def create_any_user(request: schemas.User, db: Session = Depends(get_db),get_current_user : int = Depends(oauth2.get_current_user)):
+def create_any_user(request: schemas.User, db: Session = Depends(get_db)):
+    # Check if user with email already exists
+    existing_user = db.query(model.User).filter(model.User.email == request.email).first()
+    if existing_user:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="User with this email already exists"
+        )
+    
+    # Hash password and create user
     hashed_password = hash_password(request.password)
     request.password = hashed_password
     new_user = model.User(**request.dict()) 

@@ -1,0 +1,205 @@
+/*!************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[12].use[3]!./app/styles/periodscare.css ***!
+  \************************************************************************************************************************************************************************************************************************************************************************/
+/* Period Care Page Styles */
+
+.period-care-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.page-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  color: #e83e8c;
+}
+
+/* Feature Cards */
+.feature-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 4rem;
+}
+
+.feature-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  width: 300px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  background-color: #fce4ec;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Icons using SVG masks */
+.period-tracker-icon {
+  background-color: #fce4ec;
+  -webkit-mask: url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/calendar-heart.svg') no-repeat center / 50%;
+  mask: url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/calendar-heart.svg') no-repeat center / 50%;
+  background: #e83e8c;
+}
+
+.period-tracker-icon::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #e83e8c;
+  -webkit-mask: url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/calendar-heart.svg') no-repeat center / 50%;
+  mask: url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/calendar-heart.svg') no-repeat center / 50%;
+}
+
+.appointment-icon::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #e83e8c;
+  -webkit-mask: url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/person-badge.svg') no-repeat center / 50%;
+  mask: url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/person-badge.svg') no-repeat center / 50%;
+}
+
+.resources-icon::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #e83e8c;
+  -webkit-mask: url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/book.svg') no-repeat center / 50%;
+  mask: url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/book.svg') no-repeat center / 50%;
+}
+
+.feature-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #e83e8c;
+}
+
+.feature-card p {
+  color: #666;
+}
+
+/* Resources Section */
+.resources-section {
+  margin-top: 5rem;
+  background-color: #f8f9fa;
+  padding: 3rem 2rem;
+  border-radius: 12px;
+}
+
+.resources-section h2 {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  color: #e83e8c;
+}
+
+.resource-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 2rem;
+  gap: 2rem;
+}
+
+.resource-card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.resource-card h3 {
+  color: #e83e8c;
+  margin-bottom: 1rem;
+}
+
+.resource-card p {
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+.resource-card ul {
+  padding-left: 1.5rem;
+}
+
+.resource-card li {
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+/* FAQ Section */
+.faq-section {
+  margin-top: 5rem;
+}
+
+.faq-section h2 {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  color: #e83e8c;
+}
+
+.faq-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.faq-item {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.faq-item h3 {
+  color: #e83e8c;
+  margin-bottom: 0.75rem;
+}
+
+.faq-item p {
+  color: #555;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .feature-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .feature-card {
+    width: 100%;
+    max-width: 350px;
+  }
+  
+  .resource-cards {
+    grid-template-columns: 1fr;
+  }
+  
+  .page-title {
+    font-size: 2rem;
+  }
+} 

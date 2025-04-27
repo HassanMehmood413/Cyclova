@@ -234,7 +234,7 @@ async def schedule_appointment(
             
             # Call the calendar tool directly
             calendar_response = await calendar_tool.invoke(
-                tool=Action.GOOGLECALENDAR_CREATE_EVENT.value,
+                tool=Action.GOOGLECALENDAR_CREATE_EVENT,
                 input=event_data
             )
             
