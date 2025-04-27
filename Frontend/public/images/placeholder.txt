@@ -1,0 +1,13 @@
+The following images are needed for the application:
+
+1. hero-image.jpg - A background image for the hero section
+2. pregnancy-icon.png - Icon for pregnancy tracker feature
+3. period-icon.png - Icon for period tracking feature
+4. appointment-icon.png - Icon for appointment booking feature
+5. insights-icon.png - Icon for insights feature
+6. symptom-icon.png - Icon for symptom tracking
+
+You can replace these with your own images or use free icons from sources like:
+- Unsplash (https://unsplash.com/) for photos
+- Iconscout (https://iconscout.com/free-icons) for icons
+- Flaticon (https://www.flaticon.com/) for icons 
