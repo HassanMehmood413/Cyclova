@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+# Cyclova 
+
+
+=======
 # Cyclova 🌸
 
 > **AI-Powered Women's Healthcare: Pregnancy Wellness + Menstrual Health**
@@ -63,7 +68,7 @@ Maps: Google Maps API | Hosting: Vercel | Payments: Secure Gateway
 
 ## 👋 Join Us!
 
-We're looking for developers, healthcare experts, NGOs & investors!
+We're looking for developers, healthcare experts, NGOs & investors for our project!
 
 ```
 Open an issue | Submit a PR | Contact us
@@ -80,4 +85,11 @@ Open an issue | Submit a PR | Contact us
   
 ### 🌸 Empowering Women Through Technology 🌸
 
+<<<<<<< HEAD
 </div>
+=======
+<p align="center">
+  Made with ❤️ for women worldwide
+</p>
+>>>>>>> 936b67f125b7714f366c76fdbf8fe3c7ed820b9c
+>>>>>>> tayyab
