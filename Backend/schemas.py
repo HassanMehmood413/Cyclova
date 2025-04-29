@@ -119,32 +119,36 @@ class MilestoneBase(BaseModel):
             raise ValueError(f"Trimester must be one of: {', '.join(valid_trimesters)}")
         return v
 
-class MilestoneCreate(MilestoneBase):
-    pass
+class MilestoneCreate(BaseModel):
+    title: str
+    description: str
+    due_date: date
+    completed: bool = False
 
-class MilestoneUpdate(BaseModel):
-    trimester: str
-    milestone: str  # Using 'milestone' instead of 'name' for consistency with the router
-    completed: bool
-    
-    @validator('trimester')
-    def validate_trimester(cls, v):
-        valid_trimesters = ["First Trimester", "Second Trimester", "Third Trimester"]
-        if v not in valid_trimesters:
-            raise ValueError(f"Trimester must be one of: {', '.join(valid_trimesters)}")
-        return v
-
-class MilestoneResponse(BaseModel):
+class MilestoneResponse(MilestoneBase):
     id: int
-    tracker_id: int
-    trimester: str
-    name: str
-    completed: bool
     created_at: datetime
     updated_at: datetime
-    
+
     class Config:
-        orm_mode = True
+        from_attributes = True
+
+class PregnancySymptomBase(BaseModel):
+    symptom: str
+    severity: int
+    date: date
+    notes: Optional[str] = None
+
+class PregnancySymptomCreate(PregnancySymptomBase):
+    pass
+
+class PregnancySymptomResponse(PregnancySymptomBase):
+    id: int
+    user_id: int
+    created_at: datetime
+
+    class Config:
+        from_attributes = True
 
 class MilestoneInputList(BaseModel):
     milestone_updates: List[MilestoneUpdate]
@@ -225,3 +229,21 @@ class InsightItem(BaseModel):
 class PeriodInsightResponse(BaseModel):
     insights: str
     advanced_insights: Optional[List[InsightItem]] = None
+
+class PregnancySymptomCreate(BaseModel):
+    symptom: str
+    severity: int
+    date: str
+    notes: Optional[str] = None
+
+class PregnancySymptomResponse(BaseModel):
+    id: int
+    user_id: int
+    symptom: str
+    severity: int
+    date: date
+    notes: Optional[str] = None
+    created_at: datetime
+    
+    class Config:
+        orm_mode = True

@@ -1,4 +1,7 @@
 {
+  "/pregnancy/page": "app/pregnancy/page.js",
+  "/periodscare/page": "app/periodscare/page.js",
   "/page": "app/page.js",
-  "/login/page": "app/login/page.js"
+  "/login/page": "app/login/page.js",
+  "/period/page": "app/period/page.js"
 }

@@ -188,11 +188,41 @@ async def update_milestones(
     # Get updated milestones
     return await get_milestones(current_user, db)
 
-@router.get("/insights", response_model=AIInsightResponse)
+
+
+from pydantic import BaseModel
+from typing import Optional
+from datetime import date
+
+class SetupData(BaseModel):
+    last_period: date
+    known_due_date: Optional[date] = None
+    first_pregnancy: bool
+    pre_pregnancy_weight: float
+    height: float
+
+class SymptomData(BaseModel):
+    date: date
+    symptom: str
+    severity: int
+    notes: Optional[str] = None
+
+
+class InsightRequest(BaseModel):
+    setup_data: SetupData
+    symptom_data: SymptomData
+
+@router.post("/insights", response_model=AIInsightResponse)
 async def get_pregnancy_insights(
+    request: InsightRequest,
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
+    setup_data = request.setup_data
+    symptom_data = request.symptom_data
+
+    print(f"Received insight request with data: {setup_data}, {symptom_data}")
+
     """Get personalized AI insights based on the user's pregnancy stage"""
     # Get the user's pregnancy tracker
     tracker = db.query(PregnancyTracker).filter(PregnancyTracker.user_id == current_user.id).first()
@@ -206,30 +236,38 @@ async def get_pregnancy_insights(
     # Calculate current week
     today = datetime.now().date()
     pregnancy_start = tracker.last_period
-    days_pregnant = (today - pregnancy_start).days
-    current_week = max(1, days_pregnant // 7)
-    current_week = min(current_week, 40)  # Cap at 40 weeks
+    days_pregnant = (today - pregnancy_start)
+    current_week =  days_pregnant
+    current_week = current_week  # Cap at 40 weeks
     
     # Determine trimester
-    if current_week <= 13:
-        trimester = "first trimester"
-    elif current_week <= 26:
-        trimester = "second trimester"
-    else:
-        trimester = "third trimester"
-    
+    # if current_week <= 13:
+        # trimester = "first trimester"
+    # elif current_week <= 26:
+        # trimester = "second trimester"
+    # else:
+    trimester = "third trimester"
+
     # Create prompt for the LLM
     prompt = f"""
-    I am currently in week {current_week} of pregnancy ({trimester}). 
-    
-    Please provide me with:
-    1. What's happening with my baby's development this week
-    2. What physical changes or symptoms I might experience
-    3. Important health considerations or tips for this stage
-    4. Self-care recommendations for this week
-    
-    Please be concise but informative, and use a supportive tone.
-    """
+        I am currently in week {current_week} of pregnancy ({trimester}).
+        Here is some information about me:
+        - First pregnancy: {'Yes' if setup_data.first_pregnancy else 'No'}
+        - Pre-pregnancy weight: {setup_data.pre_pregnancy_weight} kg
+        - Height: {setup_data.height} cm
+
+        Today, I'm experiencing the following symptom: {symptom_data.symptom} (severity: {symptom_data.severity}).
+        Notes: {symptom_data.notes or 'None'}
+
+        Please provide:
+        1. Baby's development this week
+        2. Expected physical symptoms
+        3. Health considerations and tips
+        4. Self-care suggestions for this week
+
+        Keep it concise, accurate, and supportive.
+        """
+
     
     # Get response from Groq
     try:

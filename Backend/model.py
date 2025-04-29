@@ -16,6 +16,8 @@ class User(Base):
     
     # Relationship to pregnancy tracker
     pregnancy_tracker = relationship("PregnancyTracker", back_populates="user", uselist=False)
+    # Relationship to pregnancy symptoms
+    pregnancy_symptoms = relationship("PregnancySymptom", back_populates="user", cascade="all, delete-orphan")
 
 # Pregnancy Tracker model
 class PregnancyTracker(Base):
@@ -49,8 +51,19 @@ class Milestone(Base):
     # Relationship to tracker
     tracker = relationship("PregnancyTracker", back_populates="milestones")
 
-
-
+class PregnancySymptom(Base):
+    __tablename__ = "pregnancy_symptoms"
+    
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
+    symptom = Column(String, nullable=False)
+    severity = Column(Integer, nullable=False)  # 1-5 scale
+    date = Column(Date, nullable=False)
+    notes = Column(Text, nullable=True)
+    created_at = Column(TIMESTAMP(timezone=True), server_default=text('now()'), nullable=False)
+    
+    # Relationship to user
+    user = relationship("User", back_populates="pregnancy_symptoms")
 
 class PeriodTracker(Base):
     __tablename__ = "period_trackers"

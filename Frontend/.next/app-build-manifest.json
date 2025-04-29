@@ -12,11 +12,29 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
+    "/pregnancy/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/pregnancy/page.css",
+      "static/chunks/app/pregnancy/page.js"
+    ],
     "/login/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/login/page.css",
       "static/chunks/app/login/page.js"
+    ],
+    "/periodscare/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/periodscare/page.css",
+      "static/chunks/app/periodscare/page.js"
+    ],
+    "/period/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/period/page.css",
+      "static/chunks/app/period/page.js"
     ]
   }
 }
