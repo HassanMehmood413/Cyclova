@@ -211,3 +211,17 @@ class AppointmentCreate(BaseModel):
     doctor_email: Optional[str] = None
     reason: Optional[str] = None
     location: Optional[str] = None
+
+# Add the PeriodInsightResponse schema
+from typing import List, Optional, Dict, Any
+from pydantic import BaseModel
+
+class InsightItem(BaseModel):
+    type: str
+    title: str
+    description: str
+    recommendation: Optional[str] = None
+
+class PeriodInsightResponse(BaseModel):
+    insights: str
+    advanced_insights: Optional[List[InsightItem]] = None

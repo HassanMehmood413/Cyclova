@@ -1,9 +1,8 @@
 {
-  "/not-found": "app/not-found.js",
   "/page": "app/page.js",
   "/periodscare/page": "app/periodscare/page.js",
-  "/appointments/page": "app/appointments/page.js",
+  "/register/page": "app/register/page.js",
+  "/login/page": "app/login/page.js",
   "/period/page": "app/period/page.js",
-  "/pregnancy/page": "app/pregnancy/page.js",
   "/appointment/page": "app/appointment/page.js"
 }

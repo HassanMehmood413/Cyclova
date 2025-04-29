@@ -74,11 +74,7 @@ export default function Navbar() {
                   Pregnancy
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link href="/appointments" className="nav-link">
-                  Appointments
-                </Link>
-              </li>
+
               <li className="nav-item username-display">
                 <span className="nav-link welcome-text">
                   Welcome, {user.username}

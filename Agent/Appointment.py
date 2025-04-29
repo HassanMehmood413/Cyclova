@@ -30,6 +30,7 @@ schedule_tools_set = composio_toolset.get_tools(
         Action.GOOGLECALENDAR_FIND_FREE_SLOTS,
         Action.GOOGLECALENDAR_CREATE_EVENT,
         Action.GMAIL_CREATE_EMAIL_DRAFT,
+        Action.GMAIL_SEND_EMAIL
     ]
 )
 
@@ -37,7 +38,8 @@ schedule_tools_set = composio_toolset.get_tools(
 schedule_tools_write = composio_toolset.get_tools(
     actions=[
         Action.GOOGLECALENDAR_CREATE_EVENT,
-        Action.GMAIL_CREATE_EMAIL_DRAFT
+        Action.GMAIL_CREATE_EMAIL_DRAFT,
+        Action.GMAIL_SEND_EMAIL
     ]
 )
 
@@ -78,6 +80,10 @@ You are Sam, an AI assistant For period and pregnancy care for women. Follow the
 6. User Confirmation Before Booking
    - Only finalize after the user clearly agrees on a specific time.
    - If the user is uncertain, clarify or offer more suggestions.
+
+6b. Send Email to User after appointment booking:
+   - Use the tool GMAIL_CREATE_EMAIL_DRAFT to first create a email draft.
+   - Then, use the tool GMAIL_SEND_EMAIL to send the email.
 
 7. Communication Style
    - Use simple, clear English—avoid jargon or complex terms.

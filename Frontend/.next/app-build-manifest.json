@@ -1,10 +1,10 @@
 {
   "pages": {
-    "/login/page": [
+    "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/login/page.css",
-      "static/chunks/app/login/page.js"
+      "static/css/app/page.css",
+      "static/chunks/app/page.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
@@ -12,11 +12,17 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/page": [
+    "/login/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/page.css",
-      "static/chunks/app/page.js"
+      "static/css/app/login/page.css",
+      "static/chunks/app/login/page.js"
+    ],
+    "/pregnancy/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/pregnancy/page.css",
+      "static/chunks/app/pregnancy/page.js"
     ],
     "/periodscare/page": [
       "static/chunks/webpack.js",
@@ -30,28 +36,17 @@
       "static/css/app/period/page.css",
       "static/chunks/app/period/page.js"
     ],
-    "/pregnancy/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/pregnancy/page.css",
-      "static/chunks/app/pregnancy/page.js"
-    ],
-    "/appointments/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/appointments/page.css",
-      "static/chunks/app/appointments/page.js"
-    ],
     "/appointment/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/appointment/page.css",
       "static/chunks/app/appointment/page.js"
     ],
-    "/not-found": [
+    "/register/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/not-found.js"
+      "static/css/app/register/page.css",
+      "static/chunks/app/register/page.js"
     ]
   }
 }

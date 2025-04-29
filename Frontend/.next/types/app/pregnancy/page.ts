@@ -1,4 +1,4 @@
-// File: D:\AI\Gen_AI_Projects\Hackathons\Cyclova\Frontend\app\pregnancy\page.tsx
+// File: D:\AI\Gen_AI_Projects\Hackathons\Cyclova(Daria Fast NUCS)\Frontend\app\pregnancy\page.tsx
 import * as entry from '../../../../app/pregnancy/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
