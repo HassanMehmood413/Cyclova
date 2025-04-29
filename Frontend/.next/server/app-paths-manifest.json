@@ -1,8 +1,4 @@
 {
   "/page": "app/page.js",
-  "/periodscare/page": "app/periodscare/page.js",
-  "/register/page": "app/register/page.js",
-  "/login/page": "app/login/page.js",
-  "/period/page": "app/period/page.js",
-  "/appointment/page": "app/appointment/page.js"
+  "/login/page": "app/login/page.js"
 }
